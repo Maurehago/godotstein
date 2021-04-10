@@ -1,11 +1,10 @@
 # godotstein
-Godotstein Community Projekt
-
-![Burg](wiki/Burg_20108-31_smal.jpg)
+Godotstein Community Projekt  
+![Burg](wiki/Burg_2019-08-31_smal.jpg)
 
 ## Einleitung
 Bei diesem Vorhaben geht es darum zu zeigen was
-mit Godot möglich ist.
+mit Godot möglich ist.  
 
 Es sollen unterschiedliche Techniken vorgestellt und an einem Beispiel
 beschrieben werden. Die Idee welche hinter diesem Projekt steckt, ist in Form

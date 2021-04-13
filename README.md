@@ -1,5 +1,4 @@
-# godotstein
-Godotstein Community Projekt  
+# Godotstein Community Projekt  
 ![Burg](wiki/Burg_2019-08-31_smal.jpg)
 
 ## Einleitung

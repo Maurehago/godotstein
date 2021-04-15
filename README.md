@@ -27,7 +27,6 @@ Eine weitere möglichkeit besteht darin, wenn ihr ein wenig kreativ seid, das ih
 
 Das könnt ihr auch über den Discord Kanal machen.
 
-Noch besser ist, wenn ihr selber ganze Räume ausstatten möchtet.
-Eine genau Beschreibung wie ihr das machen könnt, folgt noch.
-
-Weitere Informationen im [Wiki](https://github.com/Maurehago/godotstein/wiki/Kundmachung "Wiki Startseite")
+Noch besser ist, wenn ihr selber einen eigenen Raum ausstatten möchtet.
+Wendet euch dazu, an einen der Burgherren.
+Eine genaue Beschreibung findet ihr hier im [Wiki](https://github.com/Maurehago/godotstein/wiki/Kundmachung "Wiki Startseite")

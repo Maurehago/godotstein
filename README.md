@@ -18,15 +18,15 @@ Das Obergeschoss ist zur Vermietung gedacht. Richte hier deinen eigenen Raum ein
 Wir laden Dich herzlich ein, an diesem Projekt mitzuwirken.
 
 ## Mitmachen
-Wie könnt ihr euch am Projekt beteiligen?
+Wie könnt ihr euch an diesem Projekt beteiligen?
 
-Zuerst einmal wenn ihr Ideen und Vorschläge einbringt, was ihr gerne in der Burg sehen möchtet, was ausgestellt werden soll.  
+Zuerst einmal könnt ihr Ideen und Vorschläge einbringt, was ihr gerne in der Burg sehen möchtet, was ausgestellt werden soll.  
 Das sollte wenn möglich, mit dem Thema Godot-Engine zu tun haben.
 
-Eine weitere möglichkeit besteht darin, wenn ihr ein wenig kreativ seid, das ihr Modelle, Skripte, Materialien, Texturen usw... beisteuert.
+Eine weitere Verfahrensweise besteht darin, eigene Modelle, Skripte, Materialien, Texturen für die Burg zur Verfügung stellt.
 
 Das könnt ihr auch über den Discord Kanal machen.
 
-Noch besser ist, wenn ihr selber einen eigenen Raum ausstatten möchtet.
-Wendet euch dazu, an einen der Burgherren.
-Eine genaue Beschreibung findet ihr hier im [Wiki](https://github.com/Maurehago/godotstein/wiki/Kundmachung "Wiki Startseite")
+Noch mehr würden wir uns freuen wenn du gleich bei uns einziehst und selber einen eigenen Raum ausgestalltest.
+Wende dich hierzu, an einen der Burgherren.
+Eine genaue Beschreibung findest du hier im [Wiki](https://github.com/Maurehago/godotstein/wiki/Kundmachung "Wiki Startseite")

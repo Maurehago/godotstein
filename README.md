@@ -2,24 +2,18 @@
 ![Burg](wiki/Burg_2019-08-31_smal.jpg)
 
 ## Einleitung
-Bei diesem Vorhaben geht es darum zu zeigen was
-mit Godot möglich ist.  
 
-Es sollen unterschiedliche Techniken vorgestellt und an einem Beispiel
-beschrieben werden. Die Idee welche hinter diesem Projekt steckt, ist in Form
-von einer Gemeinschaftsarbeit, gängige Methoden aus den unterschiedlichen
-Bereichen aufzuzeigen. Angefangen von der Modellierung, Texturierung bis hin
-zur Programmierung.
+Vor Euch liegt Burg Godotstein. Dieser Ort wurde geschaffen um für die Community ein virtuelles Domizil zu schaffen. Fühlt euch eingeladen diese Burg zu besichtigen oder gar einen Raum zu beziehen.
 
-Besonders den optimalen Workflow wollen wir ausarbeiten und dokumentieren.
+Wir stellen hier eine dreidimensionale virtuelle Burg zum durch flanieren und verweilen bereit.
 
-Für jedes Thema wird es eigene Räume geben. Es werden beispielsweise Shader
-vorgestellt und Materialien gezeigt. In der Bibliothek werden Bücher über
-jegliche Informationen im weitesten Sinne über Godot zu finden sein.
-Inwieweit wir hier das bestehende Wiki mit einfließen lassen, ist noch nicht geklärt.
+Die Burg ist Museum, Schulungsort und kultureller Treffpunkt zu gleich.
 
-Da es sich um ein lang angelegtes Projekt handelt, vielleicht wird es nie fertig,
-besteht auch kein Zeitdruck.
+Die Kellerräume sind für anschauliche Schulungen bezüglich Godot gedacht. Hier sollt ihr künftig technische Hintergründe zu Godot erfahren. Von der einfachen Programmierung in 2D bis hin zu Beispielen die zeigen was mit Shadern so alles möglich ist.
+
+Das Erdgeschoss ist für Ausstellungen vorgesehen.Wie wäre es wenn du hier dein aktuelles Projekt vorstellst?
+
+Das Obergeschoss ist zur Vermietung gedacht. Richte hier deinen eigenen Raum ein. Dieser von dir gestaltete Raum, steht dann wieder den anderen Usern zum durchwandern offen.
 
 Wir laden Dich herzlich ein, an diesem Projekt mitzuwirken.
 

@@ -29,4 +29,4 @@ Das kannst du auch über den Discord Kanal machen.
 
 Noch mehr würden wir uns freuen, wenn du gleich bei uns einziehst und selber einen eigenen Raum ausgestalltest. Genug freie Räume stehen hierfür bereit.
 Wende dich hierzu, an einen der Burgherren.
-Eine genaue Beschreibung findest du hier im [Wiki](https://github.com/Maurehago/godotstein/wiki/Kundmachung "Wiki Startseite")
+Eine genaue Beschreibung findest du hier im [Wiki](https://github.com/Maurehago/godotstein/wiki/Home)

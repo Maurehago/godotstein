@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Burg/EG/EG12/Fenster_EG12.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Burg/EG/EG12/EG12.mesh" type="ArrayMesh" id=2]
+
+[node name="EG12" type="Spatial"]
+
+[node name="EG12" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="Fenster_EG12" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null

@@ -12,4 +12,4 @@ func _unhandled_key_input(_event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# 1. Levels anzeigen
-	Level.show_level(["test"])
+	Level.show_level(["hof","egtuer","t1"])

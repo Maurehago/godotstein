@@ -2,38 +2,31 @@
 ![Burg](wiki/Burg_2019-08-31_smal.jpg)
 
 ## Einleitung
-Bei diesem Vorhaben geht es darum zu zeigen was
-mit Godot möglich ist.  
 
-Es sollen unterschiedliche Techniken vorgestellt und an einem Beispiel
-beschrieben werden. Die Idee welche hinter diesem Projekt steckt, ist in Form
-von einer Gemeinschaftsarbeit, gängige Methoden aus den unterschiedlichen
-Bereichen aufzuzeigen. Angefangen von der Modellierung, Texturierung bis hin
-zur Programmierung.
+Vor Euch liegt Burg Godotstein. Dieser Ort wurde geschaffen um für die Community ein virtuelles Domizil zu schaffen. Fühlt euch eingeladen diese Burg zu besichtigen oder gar einen Raum zu beziehen.
 
-Besonders den optimalen Workflow wollen wir ausarbeiten und dokumentieren.
+Wir stellen hier eine dreidimensionale virtuelle Burg zum durch flanieren und verweilen bereit.
 
-Für jedes Thema wird es eigene Räume geben. Es werden beispielsweise Shader
-vorgestellt und Materialien gezeigt. In der Bibliothek werden Bücher über
-jegliche Informationen im weitesten Sinne über Godot zu finden sein.
-Inwieweit wir hier das bestehende Wiki mit einfließen lassen, ist noch nicht geklärt.
+Die Burg ist Museum, Schulungsort und kultureller Treffpunkt zu gleich.
 
-Da es sich um ein lang angelegtes Projekt handelt, vielleicht wird es nie fertig,
-besteht auch kein Zeitdruck.
+Die Kellerräume sind für anschauliche Schulungen bezüglich Godot gedacht. Hier sollt ihr künftig technische Hintergründe zu Godot erfahren. Von der einfachen Programmierung in 2D bis hin zu Beispielen die zeigen was mit Shadern so alles möglich ist.
+
+Das Erdgeschoss ist für Ausstellungen vorgesehen.Wie wäre es wenn du hier dein aktuelles Projekt vorstellst?
+
+Das Obergeschoss ist zur Vermietung gedacht. Richte hier deinen eigenen Raum ein. Dieser von dir gestaltete Raum, steht dann wieder den anderen Usern zum durchwandern offen.
 
 Wir laden Dich herzlich ein, an diesem Projekt mitzuwirken.
 
 ## Mitmachen
-Wie könnt ihr euch am Projekt beteiligen?
+Wie kannst du dich an diesem Projekt beteiligen?
 
-Zuerst einmal wenn ihr Ideen und Vorschläge einbringt, was ihr gerne in der Burg sehen möchtet, was ausgestellt werden soll.  
+Zuerst einmal kannst du Ideen und Vorschläge einbringt, was du gerne in der Burg sehen möchtest, was ausgestellt werden soll.  
 Das sollte wenn möglich, mit dem Thema Godot-Engine zu tun haben.
 
-Eine weitere möglichkeit besteht darin, wenn ihr ein wenig kreativ seid, das ihr Modelle, Skripte, Materialien, Texturen usw... beisteuert.
+Eine weitere Verfahrensweise besteht darin, eigene Modelle, Skripte, Materialien, Texturen für die Burg zur Verfügung stellt.
 
-Das könnt ihr auch über den Discord Kanal machen.
+Das kannst du auch über den Discord Kanal machen.
 
-Noch besser ist, wenn ihr selber ganze Räume ausstatten möchtet.
-Eine genau Beschreibung wie ihr das machen könnt, folgt noch.
-
-Weitere Informationen im [Wiki](https://github.com/Maurehago/godotstein/wiki/Kundmachung "Wiki Startseite")
+Noch mehr würden wir uns freuen, wenn du gleich bei uns einziehst und selber einen eigenen Raum ausgestalltest. Genug freie Räume stehen hierfür bereit.
+Wende dich hierzu, an einen der Burgherren.
+Eine genaue Beschreibung findest du hier im [Wiki](https://github.com/Maurehago/godotstein/wiki/Home)

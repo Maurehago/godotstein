@@ -1,6 +1,6 @@
 extends Control
 
-var Burg = preload("res://Main/Main.tscn").instance()
+# var Burg = preload("res://Main/Main.tscn").instance()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,11 +15,14 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
 func _on_Button_button_up():
-	get_tree().get_root().add_child(Burg)
+	Level.show_last()
+	Gui.show_gui([])
+	Level.player.start_move()
+	
+	# get_tree().get_root().add_child(Burg)
 	# entweder nur ausblenden
 	# self.visible = false
 	# oder 
-	get_tree().get_root().remove_child(self)
+	# get_tree().get_root().remove_child(self)
 	pass # Replace with function body.

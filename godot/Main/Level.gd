@@ -8,7 +8,6 @@ extends Spatial
 #
 # Die Levels werden dan per "level_test"-Skript an diese Node eingefügt oder entfernt
 
-
 # Levels - Liste alle vorgeladenen Level/Szenen mit eindeutiger ID (01,02, ..) 
 var Levels:Dictionary = {
 	"test": preload("res://Burg/Test/Test_Level.tscn").instance(),
@@ -50,6 +49,9 @@ var Levels:Dictionary = {
 	"egtuer": preload("res://Burg/EG/EGTuer/EgTuer.tscn").instance(),
 }
 
+# objekte
+var player:KinematicBody
+
 # Variablen
 var levelList:Array
 
@@ -74,6 +76,18 @@ func show_level(newList:Array):
 	# neue Liste merken
 	levelList = newList
 
+func hide_all():
+	# alle in der alten Liste durchgehen
+	for levelName in levelList:
+		# wenn nicht in der neuen Liste -> dann entfernen
+		if Levels.has(levelName):
+			call_deferred("_remove_scene", Levels[levelName])
+	
+
+func show_last():
+	show_level(levelList)
+	
+
 # ==========================
 #   Intern
 # -----------
@@ -91,7 +105,9 @@ func _remove_scene(scene:Node):
 	remove_child(scene)
 	scene.set_owner(null)
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# GUI mit aufnehmen
 	pass
 	

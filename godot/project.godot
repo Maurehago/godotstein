@@ -10,13 +10,12 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
 config/name="Godotstein"
-run/main_scene="res://Main/Main.tscn"
+run/main_scene="res://Main/MainMenue.tscn"
 config/icon="res://icon.png"
 
 [autoload]

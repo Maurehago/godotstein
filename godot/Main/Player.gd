@@ -700,6 +700,10 @@ func _ready():
 	TopRay = $Crouch/TopRay
 	FloorRay = $Feet/FloorRay
 	
+	# Wenn Level dan Player übergeben
+	if Level:
+		Level.player = self
+	
 	# Bewegung starten
 	# todo: in Main auslagern ?
-	start_move()
+	# start_move()

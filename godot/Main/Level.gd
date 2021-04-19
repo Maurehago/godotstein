@@ -8,12 +8,18 @@ extends Spatial
 #
 # Die Levels werden dan per "level_test"-Skript an diese Node eingefügt oder entfernt
 
-
 # Levels - Liste alle vorgeladenen Level/Szenen mit eindeutiger ID (01,02, ..) 
 var Levels:Dictionary = {
 	"test": preload("res://Burg/Test/Test_Level.tscn").instance(),
 	"hof": preload("res://Burg/Hof/Hof.tscn").instance(),
 	"t1": preload("res://Burg/Turm/T1/T1.tscn").instance(),
+	"t2": preload("res://Burg/Turm/T2/T2.tscn").instance(),
+	"t3": preload("res://Burg/Turm/T3/T3.tscn").instance(),
+	"t4": preload("res://Burg/Turm/T4/T4.tscn").instance(),
+	"t5": preload("res://Burg/Turm/T5/T5.tscn").instance(),
+	"t6": preload("res://Burg/Turm/T6/T6.tscn").instance(),
+	"t7": preload("res://Burg/Turm/T7/T7.tscn").instance(),
+	"t8": preload("res://Burg/Turm/T8/T8.tscn").instance(),
 	"k01": preload("res://Burg/Keller/K01/K01.tscn").instance(),
 	"k02": preload("res://Burg/Keller/K02/K02.tscn").instance(),
 	"k03": preload("res://Burg/Keller/K03/K03.tscn").instance(),
@@ -43,6 +49,9 @@ var Levels:Dictionary = {
 	"egtuer": preload("res://Burg/EG/EGTuer/EgTuer.tscn").instance(),
 }
 
+# objekte
+var player:KinematicBody
+
 # Variablen
 var levelList:Array
 
@@ -67,6 +76,18 @@ func show_level(newList:Array):
 	# neue Liste merken
 	levelList = newList
 
+func hide_all():
+	# alle in der alten Liste durchgehen
+	for levelName in levelList:
+		# wenn nicht in der neuen Liste -> dann entfernen
+		if Levels.has(levelName):
+			call_deferred("_remove_scene", Levels[levelName])
+	
+
+func show_last():
+	show_level(levelList)
+	
+
 # ==========================
 #   Intern
 # -----------
@@ -84,7 +105,9 @@ func _remove_scene(scene:Node):
 	remove_child(scene)
 	scene.set_owner(null)
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# GUI mit aufnehmen
 	pass
 	

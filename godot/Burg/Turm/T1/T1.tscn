@@ -30,7 +30,7 @@ shape = SubResource( 2 )
 
 [node name="Level_test2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.955211, 0, -0.295925, 0, 1, 0, 0.295925, 0, 0.955211, -8.96473, 1.39713, 18.8391 )
-level_list = "t1,k01,egtuer"
+level_list = "t1,k01,ktuerwest"
 
 [node name="CollisionShape2" type="CollisionShape" parent="Level_test2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17212, 0, 3.32261 )

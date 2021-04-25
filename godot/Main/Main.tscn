@@ -27,4 +27,3 @@ script = ExtResource( 4 )
 transform = Transform( -0.987645, 0, -0.15671, -0.101031, 0.764438, 0.636732, 0.119795, 0.644698, -0.754993, 0, 1.39257, 0 )
 shadow_contact = 0.1
 directional_shadow_mode = 1
-directional_shadow_blend_splits = true

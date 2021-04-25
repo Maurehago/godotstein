@@ -42,6 +42,24 @@ __meta__ = {
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
 shape = SubResource( 1 )
 
+[node name="StaticBody23" type="StaticBody" parent="."]
+transform = Transform( 0.971735, 0, 0.236075, 0, 1, 0, -0.236075, 0, 0.971735, -16.668, -1.90735e-06, -3.42238 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody23"]
+shape = SubResource( 1 )
+
+[node name="StaticBody24" type="StaticBody" parent="."]
+transform = Transform( 0.88812, 0, -0.459611, 0, 1, 0, 0.459611, 0, 0.88812, -10.3754, -1.90735e-06, -2.47287 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody24"]
+shape = SubResource( 1 )
+
 [node name="StaticBody5" type="StaticBody" parent="."]
 transform = Transform( -0.746917, 0, 0.664917, 0, 1, 0, -0.664917, 0, -0.746917, -28.845, -1.90735e-06, 1.58879 )
 __meta__ = {

@@ -12,6 +12,7 @@ extends Spatial
 var Levels:Dictionary = {
 	"test": preload("res://Burg/Test/Test_Level.tscn").instance(),
 	"hof": preload("res://Burg/Hof/Hof.tscn").instance(),
+	"bibliothek": preload("res://Burg/EG/Bibliothek/Bibliothek.tscn").instance(),
 	"t1": preload("res://Burg/Turm/T1/T1.tscn").instance(),
 	"t2": preload("res://Burg/Turm/T2/T2.tscn").instance(),
 	"t3": preload("res://Burg/Turm/T3/T3.tscn").instance(),
@@ -32,6 +33,7 @@ var Levels:Dictionary = {
 	"k10": preload("res://Burg/Keller/K10/K10.tscn").instance(),
 	"k11": preload("res://Burg/Keller/K11/K11.tscn").instance(),
 	"k12": preload("res://Burg/Keller/K12/K12.tscn").instance(),
+	"k13": preload("res://Burg/Keller/K13/K13.tscn").instance(),
 	"ktuerost": preload("res://Burg/Keller/KTuer/KTuerOst.tscn").instance(),
 	"ktuerwest": preload("res://Burg/Keller/KTuer/KTuerWest.tscn").instance(),
 	"eg01": preload("res://Burg/EG/EG01/EG01.tscn").instance(),
@@ -47,6 +49,17 @@ var Levels:Dictionary = {
 	"eg11": preload("res://Burg/EG/EG11/EG11.tscn").instance(),
 	"eg12": preload("res://Burg/EG/EG12/EG12.tscn").instance(),
 	"egtuer": preload("res://Burg/EG/EGTuer/EgTuer.tscn").instance(),
+	"ogtuer": preload("res://Burg/OG/OGTuer/OGTuer.tscn").instance(),
+	"og02": preload("res://Burg/OG/OG02/OG02.tscn").instance(),
+	"og03": preload("res://Burg/OG/OG03/OG03.tscn").instance(),
+	"og04": preload("res://Burg/OG/OG04/OG04.tscn").instance(),
+	"og05": preload("res://Burg/OG/OG05/OG05.tscn").instance(),
+	"og06": preload("res://Burg/OG/OG06/OG06.tscn").instance(),
+	"og08": preload("res://Burg/OG/OG08/OG08.tscn").instance(),
+	"og09": preload("res://Burg/OG/OG09/OG09.tscn").instance(),
+	"og10": preload("res://Burg/OG/OG10/OG10.tscn").instance(),
+	"og11": preload("res://Burg/OG/OG11/OG11.tscn").instance(),
+	"og12": preload("res://Burg/OG/OG12/OG12.tscn").instance(),
 }
 
 # objekte

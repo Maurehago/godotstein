@@ -21,6 +21,6 @@ func _ready():
 	#player.stop_move()
 	
 	# 1. Levels anzeigen
-	Level.show_level(["hof","egtuer","t1"])
+	Level.show_level(["hof","egtuer","t1","t8"])
 	# Level.hide_all()
 	Gui.show_gui(["menue"])

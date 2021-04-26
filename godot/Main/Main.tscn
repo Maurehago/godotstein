@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Main/Player.gd" type="Script" id=2]
 [ext_resource path="res://Main/Level.gd" type="Script" id=3]
 [ext_resource path="res://Main/GUI.gd" type="Script" id=4]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+ssao_enabled = true
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
@@ -23,7 +30,10 @@ script = ExtResource( 4 )
 
 [node name="Enviroment" type="Spatial" parent="."]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource( 2 )
+
 [node name="DirectionalLight" type="DirectionalLight" parent="Enviroment"]
-transform = Transform( -0.987645, 0, -0.15671, -0.101031, 0.764438, 0.636732, 0.119795, 0.644698, -0.754993, 0, 1.39257, 0 )
+transform = Transform( -0.987645, 0.056981, -0.145984, -0.101031, 0.480592, 0.871105, 0.119795, 0.875091, -0.468897, 0, 1.39257, 0 )
 shadow_contact = 0.1
 directional_shadow_mode = 1

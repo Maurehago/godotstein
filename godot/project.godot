@@ -23,6 +23,10 @@ config/icon="res://icon.png"
 Level="*res://Main/Level.gd"
 Gui="*res://Main/GUI.gd"
 
+[display]
+
+window/stretch/aspect="keep"
+
 [importer_defaults]
 
 scene={

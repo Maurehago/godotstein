@@ -526,7 +526,7 @@ func _check_key_input():
 		
 		# Nase Ausrichtung lesen
 		var noseBasis: Basis = Nose.get_global_transform().orthonormalized().basis
-		bodyBasis = self.get_transform().orthonormalized().basis
+		bodyBasis = self.get_global_transform().orthonormalized().basis
 
 		# Wenn Flugmodus umschaltbar
 		if allowChangeFlying and Input.is_action_just_pressed(input_fly):
@@ -700,10 +700,6 @@ func _ready():
 	TopRay = $Crouch/TopRay
 	FloorRay = $Feet/FloorRay
 	
-	# Wenn Level dan Player übergeben
-	if Level:
-		Level.player = self
-	
 	# Bewegung starten
 	# todo: in Main auslagern ?
-	# start_move()
+	start_move()

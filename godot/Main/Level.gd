@@ -72,6 +72,7 @@ var levelList:Array
 #   Funktionen
 # -------------
 
+# Zeigt die registrierten Szenen vom angegebenen Array an
 func show_level(newList:Array):
 	# alle in der neuen Liste durchgehen
 	for newName in newList:
@@ -89,6 +90,7 @@ func show_level(newList:Array):
 	# neue Liste merken
 	levelList = newList
 
+# entfernt alle aktuellen Szenen
 func hide_all():
 	# alle in der alten Liste durchgehen
 	for levelName in levelList:
@@ -97,6 +99,7 @@ func hide_all():
 			call_deferred("_remove_scene", Levels[levelName])
 	
 
+# zeigt die zuletzt verwendeten szenen wieder an
 func show_last():
 	show_level(levelList)
 	

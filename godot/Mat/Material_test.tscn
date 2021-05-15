@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=2]
+period = 17.5
+persistence = 1.0
+lacunarity = 2.21
+
+[sub_resource type="NoiseTexture" id=3]
+seamless = true
+noise = SubResource( 2 )
+
+[sub_resource type="VisualShaderNodeTexture" id=4]
+texture = SubResource( 3 )
+
+[sub_resource type="VisualShaderNodeColorOp" id=5]
+output_port_for_preview = 0
+operator = 1
+
+[sub_resource type="VisualShaderNodeColorConstant" id=6]
+constant = Color( 0.395508, 0.393, 0.393, 1 )
+
+[sub_resource type="VisualShader" id=7]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Texture:2
+	vec4 tex_frg_2_read = texture(tex_frg_2, UV.xy);
+	vec3 n_out2p0 = tex_frg_2_read.rgb;
+	float n_out2p1 = tex_frg_2_read.a;
+
+// Color:4
+	vec3 n_out4p0 = vec3(0.395508, 0.393000, 0.393000);
+	float n_out4p1 = 1.000000;
+
+// ColorOp:3
+	vec3 n_out3p0 = abs(n_out2p0 - n_out4p0);
+
+// Output:0
+	ALBEDO = n_out3p0;
+	NORMALMAP_DEPTH = dot(n_out3p0, vec3(0.333333, 0.333333, 0.333333));
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+nodes/fragment/0/position = Vector2( 980, 20 )
+nodes/fragment/2/node = SubResource( 4 )
+nodes/fragment/2/position = Vector2( 40, 60 )
+nodes/fragment/3/node = SubResource( 5 )
+nodes/fragment/3/position = Vector2( 540, 80 )
+nodes/fragment/4/node = SubResource( 6 )
+nodes/fragment/4/position = Vector2( 340, 240 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 3, 0, 3, 0, 0, 0, 4, 0, 3, 1, 3, 0, 0, 9 )
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+
+[node name="Material_test" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.997321, 0.0731512, 0, -0.0731512, 0.997321, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 8 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.929738, 1.43693, 2.09301 )
+light_energy = 2.51

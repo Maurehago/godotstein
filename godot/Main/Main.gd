@@ -17,8 +17,9 @@ func _unhandled_key_input(_event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# player
-	#player = $Player/KinematicBody
-	#player.stop_move()
+	player = $Player/KinematicBody
+	player.stop_move()
+	Level.player = player
 	
 	# 1. Levels anzeigen
 	Level.show_level(["hof","egtuer","t1","t8"])

@@ -3,7 +3,7 @@
 
 ## Einleitung
 
-Vor Euch liegt Burg Godotstein. Dieser Ort wurde geschaffen um für die Community ein virtuelles Domizil zu schaffen. Fühlt euch eingeladen diese Burg zu besichtigen oder gar einen Raum zu beziehen.
+Vor euch liegt Burg Godotstein. Dieser Ort wurde geschaffen um für die Community ein virtuelles Domizil zu schaffen. Fühlt euch eingeladen diese Burg zu besichtigen oder gar einen Raum zu beziehen.
 
 Wir stellen hier eine dreidimensionale virtuelle Burg zum durch flanieren und verweilen bereit.
 

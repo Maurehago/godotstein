@@ -17,6 +17,8 @@ Das Obergeschoss ist zur Vermietung gedacht. Richte hier deinen eigenen Raum ein
 
 Wir laden Dich herzlich ein, an diesem Projekt mitzuwirken.
 
+
+
 ## Mitmachen
 Wie kannst du dich an diesem Projekt beteiligen?
 

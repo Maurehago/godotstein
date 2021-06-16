@@ -27,9 +27,9 @@ Das sollte wenn möglich, mit dem Thema Godot-Engine zu tun haben.
 
 Eine weitere Verfahrensweise besteht darin, eigene Modelle, Skripte, Materialien, Texturen für die Burg zur Verfügung stellt.
 
-Das kannst du auch über den Discord Kanal machen.
+Das kannst du auch über den Discord Kanal (Link: https://discord.gg/EaCeCHeDkZ) machen.
 
 Noch mehr würden wir uns freuen, wenn du gleich bei uns einziehst und selber einen eigenen Raum ausgestalltest. Genug freie Räume stehen hierfür bereit.
-Wende dich hierzu, an einen der Burgherren.
+Wende dich hierzu an einen der Burgherren.
 
 Eine genaue Beschreibung findest du hier im [Wiki](https://github.com/Maurehago/godotstein/wiki/Home)

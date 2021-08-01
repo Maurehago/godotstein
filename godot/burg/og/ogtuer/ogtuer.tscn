@@ -1,0 +1,179 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://burg/collision/collision.tscn" type="PackedScene" id=1]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og02_og03.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_bog_t5.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og06_t4.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og06_tog3.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og06_tog4.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og07_t7.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og08_og09.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og08_og10.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og03_tog2.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og03_tog3.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og02_og04.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og03_t3.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og05_t4.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og03_t2.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_bog_t4.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og02_og05.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og05_tog4.mesh" type="ArrayMesh" id=18]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og06_t3.mesh" type="ArrayMesh" id=19]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og09_t6.mesh" type="ArrayMesh" id=20]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og11_tog5.mesh" type="ArrayMesh" id=21]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og12_t5.mesh" type="ArrayMesh" id=22]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og12_t6.mesh" type="ArrayMesh" id=23]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og12_tog5.mesh" type="ArrayMesh" id=24]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og08_og11.mesh" type="ArrayMesh" id=25]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og09_tog7.mesh" type="ArrayMesh" id=26]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og09_tog6.mesh" type="ArrayMesh" id=27]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og11_t5.mesh" type="ArrayMesh" id=28]
+[ext_resource path="res://burg/og/ogtuer/tuerrahmen_og12_tog6.mesh" type="ArrayMesh" id=29]
+
+[node name="OGTuer" type="Spatial"]
+
+[node name="Tuerrahmen" type="Spatial" parent="."]
+
+[node name="Tuerrahmen_BOG_T4" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 16 )
+material/0 = null
+
+[node name="Tuerrahmen_BOG_T5" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="Tuerrahmen_OG02_OG03" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="Tuerrahmen_OG02_OG04" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 12 )
+material/0 = null
+
+[node name="Tuerrahmen_OG02_OG05" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 17 )
+material/0 = null
+
+[node name="Tuerrahmen_OG03_T2" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="Tuerrahmen_OG03_T3" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 13 )
+material/0 = null
+
+[node name="Tuerrahmen_OG03_TOG2" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 10 )
+material/0 = null
+
+[node name="Tuerrahmen_OG03_TOG3" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="Tuerrahmen_OG05_T4" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 14 )
+material/0 = null
+material/1 = null
+
+[node name="Tuerrahmen_OG05_TOG4" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 18 )
+material/0 = null
+
+[node name="Tuerrahmen_OG06_T3" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 19 )
+material/0 = null
+
+[node name="Tuerrahmen_OG06_T4" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="Tuerrahmen_OG06_TOG3" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="Tuerrahmen_OG06_TOG4" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="Tuerrahmen_OG07_T7" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="Tuerrahmen_OG08_OG09" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="Tuerrahmen_OG08_OG10" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="Tuerrahmen_OG08_OG11" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 25 )
+material/0 = null
+
+[node name="Tuerrahmen_OG09_T6" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 20 )
+material/0 = null
+
+[node name="Tuerrahmen_OG09_TOG6" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 27 )
+material/0 = null
+
+[node name="Tuerrahmen_OG09_TOG7" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 26 )
+material/0 = null
+
+[node name="Tuerrahmen_OG11_T5" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 28 )
+material/0 = null
+
+[node name="Tuerrahmen_OG11_TOG5" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 21 )
+material/0 = null
+
+[node name="Tuerrahmen_OG12_T5" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 22 )
+material/0 = null
+
+[node name="Tuerrahmen_OG12_T6" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 23 )
+material/0 = null
+
+[node name="Tuerrahmen_OG12_TOG5" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 24 )
+material/0 = null
+
+[node name="Tuerrahmen_OG12_TOG6" type="MeshInstance" parent="Tuerrahmen"]
+use_in_baked_light = true
+mesh = ExtResource( 29 )
+material/0 = null
+
+[node name="Collision" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )

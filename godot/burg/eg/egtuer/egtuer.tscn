@@ -1,0 +1,200 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg03_teg3.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg05_t4.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg02_eg03.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_beg_t5.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg01_teg1.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg01_t1.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg02_eg05.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_beg_t4.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg02_eg04.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg03_t2.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg01_eg02.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg03_t3.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg03_teg2.mesh" type="ArrayMesh" id=13]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg11_teg5.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg06_t4.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg11_t5.mesh" type="ArrayMesh" id=16]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg12_teg6.mesh" type="ArrayMesh" id=17]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg07_eg08.mesh" type="ArrayMesh" id=18]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg07_t8.mesh" type="ArrayMesh" id=19]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg09_t6.mesh" type="ArrayMesh" id=20]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_hof_t1.mesh" type="ArrayMesh" id=21]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg09_teg7.mesh" type="ArrayMesh" id=22]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg06_teg3.mesh" type="ArrayMesh" id=23]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg08_eg10.mesh" type="ArrayMesh" id=24]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg09_teg6.mesh" type="ArrayMesh" id=25]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg12_teg5.mesh" type="ArrayMesh" id=26]
+[ext_resource path="res://burg/eg/egtuer/tuer_hof_t8.mesh" type="ArrayMesh" id=27]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg07_t7.mesh" type="ArrayMesh" id=28]
+[ext_resource path="res://burg/eg/egtuer/tuer_hof_t1.mesh" type="ArrayMesh" id=29]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg06_t3.mesh" type="ArrayMesh" id=30]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg05_teg4.mesh" type="ArrayMesh" id=31]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg06_teg4.mesh" type="ArrayMesh" id=32]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_hof_t8.mesh" type="ArrayMesh" id=33]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg08_eg09.mesh" type="ArrayMesh" id=34]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg12_t6.mesh" type="ArrayMesh" id=35]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg07_teg8.mesh" type="ArrayMesh" id=36]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg08_eg11.mesh" type="ArrayMesh" id=37]
+[ext_resource path="res://burg/eg/egtuer/tuerrahmen_eg12_t5.mesh" type="ArrayMesh" id=38]
+[ext_resource path="res://burg/collision/collision.tscn" type="PackedScene" id=39]
+
+[node name="EgTuer" type="Spatial"]
+
+[node name="Tuerrahmen" type="Spatial" parent="."]
+
+[node name="Tuerrahmen_BEG_T4" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="Tuerrahmen_BEG_T5" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="Tuerrahmen_EG01_EG02" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="Tuerrahmen_EG01_T1" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="Tuerrahmen_EG01_TEG1" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="Tuerrahmen_EG02_EG03" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="Tuerrahmen_EG02_EG04" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="Tuerrahmen_EG02_EG05" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="Tuerrahmen_EG03_T2" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 10 )
+material/0 = null
+
+[node name="Tuerrahmen_EG03_T3" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 12 )
+material/0 = null
+
+[node name="Tuerrahmen_EG03_TEG2" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 13 )
+material/0 = null
+
+[node name="Tuerrahmen_EG03_TEG3" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Tuerrahmen_EG05_T4" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+
+[node name="Tuerrahmen_EG05_TEG4" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 31 )
+material/0 = null
+
+[node name="Tuerrahmen_EG06_T3" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 30 )
+material/0 = null
+
+[node name="Tuerrahmen_EG06_T4" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="Tuerrahmen_EG06_TEG3" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 23 )
+material/0 = null
+
+[node name="Tuerrahmen_EG06_TEG4" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 32 )
+material/0 = null
+
+[node name="Tuerrahmen_EG07_EG08" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 18 )
+material/0 = null
+
+[node name="Tuerrahmen_EG07_T7" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 28 )
+material/0 = null
+
+[node name="Tuerrahmen_EG07_T8" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 19 )
+material/0 = null
+
+[node name="Tuerrahmen_EG07_TEG8" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 36 )
+material/0 = null
+
+[node name="Tuerrahmen_EG08_EG09" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 34 )
+material/0 = null
+
+[node name="Tuerrahmen_EG08_EG10" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 24 )
+material/0 = null
+
+[node name="Tuerrahmen_EG08_EG11" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 37 )
+material/0 = null
+
+[node name="Tuerrahmen_EG09_T6" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 20 )
+material/0 = null
+
+[node name="Tuerrahmen_EG09_TEG6" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 25 )
+material/0 = null
+
+[node name="Tuerrahmen_EG09_TEG7" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 22 )
+material/0 = null
+
+[node name="Tuerrahmen_EG11_T5" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 16 )
+material/0 = null
+
+[node name="Tuerrahmen_EG11_TEG5" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 14 )
+material/0 = null
+
+[node name="Tuerrahmen_EG12_T5" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 38 )
+material/0 = null
+
+[node name="Tuerrahmen_EG12_T6" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 35 )
+material/0 = null
+
+[node name="Tuerrahmen_EG12_TEG5" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 26 )
+material/0 = null
+
+[node name="Tuerrahmen_EG12_TEG6" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 17 )
+material/0 = null
+
+[node name="Tuerrahmen_Hof_T1" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 21 )
+material/0 = null
+
+[node name="Tuerrahmen_Hof_T8" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 33 )
+material/0 = null
+
+[node name="Tuer_Hof_T1" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 29 )
+material/0 = null
+
+[node name="Tuer_Hof_T8" type="MeshInstance" parent="Tuerrahmen"]
+mesh = ExtResource( 27 )
+material/0 = null
+
+[node name="Collision" parent="." instance=ExtResource( 39 )]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://main/main.gd" type="Script" id=1]
+[ext_resource path="res://main/player.gd" type="Script" id=2]
+[ext_resource path="res://main/level.gd" type="Script" id=3]
+[ext_resource path="res://main/gui.gd" type="Script" id=4]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+ssao_enabled = true
+
+[node name="Main" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Player" type="Spatial" parent="."]
+
+[node name="KinematicBody" type="KinematicBody" parent="Player"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 3, 0 )
+script = ExtResource( 2 )
+allowChangeFlying = true
+
+[node name="Level" type="Spatial" parent="."]
+script = ExtResource( 3 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
+
+[node name="Enviroment" type="Spatial" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Enviroment"]
+transform = Transform( -0.987645, 0.056981, -0.145984, -0.101031, 0.480592, 0.871105, 0.119795, 0.875091, -0.468897, 0, 1.39257, 0 )
+shadow_contact = 0.1
+directional_shadow_mode = 1

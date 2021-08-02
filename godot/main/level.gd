@@ -10,7 +10,6 @@ extends Spatial
 
 # Levels - Liste alle vorgeladenen Level/Szenen mit eindeutiger ID (01,02, ..) 
 var Levels:Dictionary = {
-	"test": preload("res://burg/test/test_level.tscn").instance(),
 	"hof": preload("res://burg/hof/hof.tscn").instance(),
 	"bibliothek": preload("res://burg/eg/bibliothek/bibliothek.tscn").instance(),
 	"t1": preload("res://burg/turm/t1/t1.tscn").instance(),

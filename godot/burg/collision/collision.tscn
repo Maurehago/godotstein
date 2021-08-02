@@ -1,0 +1,223 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -0.6036, 0, 0.303, -0.6036, 0.0518, -0.2736, -0.6036, 0.0518, 0.303, -0.6036, 0, 0.303, -0.6036, 0, -0.2736, -0.6036, 0.0518, -0.2736, 0.4889, 0, -0.2736, 0.5929, 0.0518, -0.2736, 0.4889, 0.0518, -0.2736, 0.4889, 0, -0.2736, 0.5929, 0, -0.2736, 0.5929, 0.0518, -0.2736, 0.5929, 0, -0.2736, 0.5929, 0.0518, 0.303, 0.5929, 0.0518, -0.2736, 0.5929, 0, -0.2736, 0.5929, 0, 0.303, 0.5929, 0.0518, 0.303, -0.4813, 0, 0.303, -0.6036, 0.0518, 0.303, -0.4813, 0.0518, 0.303, -0.4813, 0, 0.303, -0.6036, 0, 0.303, -0.6036, 0.0518, 0.303, 0.4889, 0, -0.2736, 0.5929, 0, 0.303, 0.5929, 0, -0.2736, 0.4889, 0, -0.2736, 0.4889, 0, 0.303, 0.5929, 0, 0.303, 0.5929, 0.0518, -0.2736, 0.4889, 2.052, -0.2736, 0.4889, 0.0518, -0.2736, 0.5929, 0.0518, -0.2736, 0.5929, 2.052, -0.2736, 0.4889, 2.052, -0.2736, 0.4889, 0.0518, -0.2736, -0.4813, 0.0518, 0.303, -0.4813, 0.0518, -0.2736, 0.4889, 0.0518, -0.2736, 0.4889, 0.0518, 0.303, -0.4813, 0.0518, 0.303, -0.6036, 0, -0.2736, -0.4813, 0, 0.303, -0.4813, 0, -0.2736, -0.6036, 0, -0.2736, -0.6036, 0, 0.303, -0.4813, 0, 0.303, 0.4889, 0, 0.303, -0.4813, 0.0518, 0.303, 0.4889, 0.0518, 0.303, 0.4889, 0, 0.303, -0.4813, 0, 0.303, -0.4813, 0.0518, 0.303, -0.6036, 0, -0.2736, -0.4813, 0.0518, -0.2736, -0.6036, 0.0518, -0.2736, -0.6036, 0, -0.2736, -0.4813, 0, -0.2736, -0.4813, 0.0518, -0.2736, 0.5929, 0, 0.303, 0.4889, 0.0518, 0.303, 0.5929, 0.0518, 0.303, 0.5929, 0, 0.303, 0.4889, 0, 0.303, 0.4889, 0.0518, 0.303, -0.4813, 0.0518, 0.303, -0.4813, 2.052, -0.2736, -0.4813, 0.0518, -0.2736, -0.4813, 0.0518, 0.303, -0.4813, 2.052, 0.303, -0.4813, 2.052, -0.2736, -0.4813, 0, -0.2736, 0.4889, 0, 0.303, 0.4889, 0, -0.2736, -0.4813, 0, -0.2736, -0.4813, 0, 0.303, 0.4889, 0, 0.303, -0.4813, 0, -0.2736, 0.4889, 0.0518, -0.2736, -0.4813, 0.0518, -0.2736, -0.4813, 0, -0.2736, 0.4889, 0, -0.2736, 0.4889, 0.0518, -0.2736, -0.4813, 2.052, -0.2736, -0.6036, 2.052, 0.303, -0.6036, 2.052, -0.2736, -0.4813, 2.052, -0.2736, -0.4813, 2.052, 0.303, -0.6036, 2.052, 0.303, 0.5929, 2.052, -0.2736, 0.4889, 2.052, 0.303, 0.4889, 2.052, -0.2736, 0.5929, 2.052, -0.2736, 0.5929, 2.052, 0.303, 0.4889, 2.052, 0.303, 0.4889, 0.0518, -0.2736, 0.4889, 2.052, 0.303, 0.4889, 0.0518, 0.303, 0.4889, 0.0518, -0.2736, 0.4889, 2.052, -0.2736, 0.4889, 2.052, 0.303, 0.4889, 0.0518, 0.303, 0.5929, 2.052, 0.303, 0.5929, 0.0518, 0.303, 0.4889, 0.0518, 0.303, 0.4889, 2.052, 0.303, 0.5929, 2.052, 0.303, 0.5929, 0.0518, 0.303, 0.5929, 2.052, -0.2736, 0.5929, 0.0518, -0.2736, 0.5929, 0.0518, 0.303, 0.5929, 2.052, 0.303, 0.5929, 2.052, -0.2736, -0.4813, 0.0518, -0.2736, -0.6036, 2.052, -0.2736, -0.6036, 0.0518, -0.2736, -0.4813, 0.0518, -0.2736, -0.4813, 2.052, -0.2736, -0.6036, 2.052, -0.2736, -0.6036, 0.0518, -0.2736, -0.6036, 2.052, 0.303, -0.6036, 0.0518, 0.303, -0.6036, 0.0518, -0.2736, -0.6036, 2.052, -0.2736, -0.6036, 2.052, 0.303, -0.6036, 0.0518, 0.303, -0.4813, 2.052, 0.303, -0.4813, 0.0518, 0.303, -0.6036, 0.0518, 0.303, -0.6036, 2.052, 0.303, -0.4813, 2.052, 0.303 )
+
+[node name="Collision" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00819, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 0.937501, 0, -0.347983, 0, 1, 0, 0.347983, 0, 0.937501, -8.25461, 0, 17.6269 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( 0.359834, 0, 0.933016, 0, 1, 0, -0.933016, 0, 0.359834, -13.5812, -1.90735e-06, 18.0395 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+shape = SubResource( 1 )
+
+[node name="StaticBody3" type="StaticBody" parent="."]
+transform = Transform( -0.789952, 0, 0.613169, 0, 1, 0, -0.613169, 0, -0.789952, -21.1471, -1.90735e-06, 9.17401 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
+shape = SubResource( 1 )
+
+[node name="StaticBody4" type="StaticBody" parent="."]
+transform = Transform( 0.601648, 0, 0.798761, 0, 1, 0, -0.798761, 0, 0.601648, -22.2098, -1.90735e-06, 1.12516 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
+shape = SubResource( 1 )
+
+[node name="StaticBody23" type="StaticBody" parent="."]
+transform = Transform( 0.971735, 0, 0.236075, 0, 1, 0, -0.236075, 0, 0.971735, -16.668, -1.90735e-06, -3.42238 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody23"]
+shape = SubResource( 1 )
+
+[node name="StaticBody24" type="StaticBody" parent="."]
+transform = Transform( 0.88812, 0, -0.459611, 0, 1, 0, 0.459611, 0, 0.88812, -10.3754, -1.90735e-06, -2.47287 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody24"]
+shape = SubResource( 1 )
+
+[node name="StaticBody5" type="StaticBody" parent="."]
+transform = Transform( -0.746917, 0, 0.664917, 0, 1, 0, -0.664917, 0, -0.746917, -28.845, -1.90735e-06, 1.58879 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody5"]
+shape = SubResource( 1 )
+
+[node name="StaticBody6" type="StaticBody" parent="."]
+transform = Transform( 0.688088, 0, 0.725627, 0, 1, 0, -0.725627, 0, 0.688088, -30.4523, -1.90735e-06, -8.83532 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody6"]
+shape = SubResource( 1 )
+
+[node name="StaticBody7" type="StaticBody" parent="."]
+transform = Transform( -0.746917, 0, 0.664917, 0, 1, 0, -0.664917, 0, -0.746917, -27.5562, -1.90735e-06, -14.7013 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody7"]
+shape = SubResource( 1 )
+
+[node name="StaticBody8" type="StaticBody" parent="."]
+transform = Transform( 0.00102945, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00102945, -15.3663, -1.90735e-06, -20.7443 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody8"]
+shape = SubResource( 1 )
+
+[node name="StaticBody9" type="StaticBody" parent="."]
+transform = Transform( -0.999992, 0, -0.00387516, 0, 1, 0, 0.00387516, 0, -0.999992, -10.4423, -1.90735e-06, -19.4744 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody9"]
+shape = SubResource( 1 )
+
+[node name="StaticBody10" type="StaticBody" parent="."]
+transform = Transform( -0.00228671, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00228671, -5.74699, -1.90735e-06, -23.877 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody10"]
+shape = SubResource( 1 )
+
+[node name="StaticBody11" type="StaticBody" parent="."]
+transform = Transform( -0.000523849, 0, 1, 0, 1, 0, -1, 0, -0.000523849, 5.81523, -1.90735e-06, -23.8564 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody11"]
+shape = SubResource( 1 )
+
+[node name="StaticBody12" type="StaticBody" parent="."]
+transform = Transform( -0.999998, 0, 0.00209394, 0, 1, 0, -0.00209394, 0, -0.999998, 10.5193, -1.90735e-06, -19.4855 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody12"]
+shape = SubResource( 1 )
+
+[node name="StaticBody13" type="StaticBody" parent="."]
+transform = Transform( -0.00429383, 0, 0.999991, 0, 1, 0, -0.999991, 0, -0.00429383, 15.4469, -1.90735e-06, -20.7462 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody13"]
+shape = SubResource( 1 )
+
+[node name="StaticBody14" type="StaticBody" parent="."]
+transform = Transform( -0.747995, 0, -0.663705, 0, 1, 0, 0.663705, 0, -0.747995, 27.653, -1.90735e-06, -14.6995 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody14"]
+shape = SubResource( 1 )
+
+[node name="StaticBody15" type="StaticBody" parent="."]
+transform = Transform( -0.965404, 0, 0.260757, 0, 1, 0, -0.260757, 0, -0.965404, 16.7283, -1.90735e-06, -3.39559 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody15"]
+shape = SubResource( 1 )
+
+[node name="StaticBody16" type="StaticBody" parent="."]
+transform = Transform( -0.886591, 0, -0.462554, 0, 1, 0, 0.462554, 0, -0.886591, 10.4481, -1.90735e-06, -2.46142 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody16"]
+shape = SubResource( 1 )
+
+[node name="StaticBody17" type="StaticBody" parent="."]
+transform = Transform( -0.610878, 0, 0.791725, 0, 1, 0, -0.791725, 0, -0.610878, 22.2618, -1.90735e-06, 1.12841 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody17"]
+shape = SubResource( 1 )
+
+[node name="StaticBody18" type="StaticBody" parent="."]
+transform = Transform( -0.744987, 0, -0.667079, 0, 1, 0, 0.667079, 0, -0.744987, 28.9376, -1.90735e-06, 1.61705 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody18"]
+shape = SubResource( 1 )
+
+[node name="StaticBody19" type="StaticBody" parent="."]
+transform = Transform( -0.686618, 0, 0.727018, 0, 1, 0, -0.727018, 0, -0.686618, 30.5049, -1.90735e-06, -8.81375 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody19"]
+shape = SubResource( 1 )
+
+[node name="StaticBody20" type="StaticBody" parent="."]
+transform = Transform( -0.803857, 0, -0.594823, 0, 1, 0, 0.594823, 0, -0.803857, 21.2113, -1.90735e-06, 9.16809 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody20"]
+shape = SubResource( 1 )
+
+[node name="StaticBody21" type="StaticBody" parent="."]
+transform = Transform( -0.365169, 0, 0.930941, 0, 1, 0, -0.930941, 0, -0.365169, 13.6424, -1.90735e-06, 18.0349 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody21"]
+shape = SubResource( 1 )
+
+[node name="StaticBody22" type="StaticBody" parent="."]
+transform = Transform( -0.943535, 0, -0.331272, 0, 1, 0, 0.331272, 0, -0.943535, 8.33931, -1.90735e-06, 17.6444 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody22"]
+shape = SubResource( 1 )

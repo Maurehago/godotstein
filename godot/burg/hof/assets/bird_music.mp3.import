@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bird_music.mp3-c8b627ec9b3a9bbe0577c02996b4df41.mp3str"
+
+[deps]
+
+source_file="res://Burg/Hof/Assets/bird_music.mp3"
+dest_files=[ "res://.import/bird_music.mp3-c8b627ec9b3a9bbe0577c02996b4df41.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

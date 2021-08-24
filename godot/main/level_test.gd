@@ -1,12 +1,11 @@
-extends Area		# für 3D
-#extends Area2D		# für 2D
+extends Area # für 3D
+#extends Area2D # für 2D
 
 # ==================
 #  Skript-Template
 # ----------------
 # benötigt das Singelton "Level" Skript
 # mit der Funktion "show_level()" 
-
 
 # Level Liste die angezeigt werden soll
 # alle anderen werden aus der Anzeige entfernt

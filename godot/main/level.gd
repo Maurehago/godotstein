@@ -87,7 +87,6 @@ func show_level(newList:Array):
 		if !newList.has(levelName):
 			if Levels.has(levelName):
 				call_deferred("_remove_scene", Levels[levelName])
-
 	# neue Liste merken
 	levelList = newList
 
@@ -98,13 +97,10 @@ func hide_all():
 		# wenn nicht in der neuen Liste -> dann entfernen
 		if Levels.has(levelName):
 			call_deferred("_remove_scene", Levels[levelName])
-	
 
 # zeigt die zuletzt verwendeten szenen wieder an
 func show_last():
 	show_level(levelList)
-	
-
 
 # ==========================
 #   Intern
@@ -123,9 +119,6 @@ func _remove_scene(scene:Node):
 	remove_child(scene)
 	scene.set_owner(null)
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	# GUI mit aufnehmen
 	pass
-	

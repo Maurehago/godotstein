@@ -22,67 +22,70 @@ extends KinematicBody
 # ===============================
 # Export Variablen
 # ------------------
-export var mouse_sensivity: = 20
-export var camera_shake_frequenz: = 7
-export var camera_shake_power: = 0.1
+export var mouse_sensivity: float = 20
+export var camera_shake_frequenz: float = 7
+export var camera_shake_power: float = 0.1
 
+export var gravity: float = 9.81
+export var max_speed: float = 3.0
+export var max_running_speed: float = 6.0
+export var accel: float = 4
+export var deaccel: float = 6
 
-export var gravity : = 9.81
-export var max_speed: = 3.0
-export var max_running_speed: = 6.0
-export var accel: = 4
-export var deaccel: = 6
-
-export var max_jump_height: = 1
-export var jump_speed: = 20
+export var max_jump_height: float = 1
+export var jump_speed: float = 20
 
 export(float, 0.1, 0.5) var max_stair_height: = 0.3
-export var max_stair_angle: = 20
-export var max_floor_angle: = 45
+export var max_stair_angle: float = 20
+export var max_floor_angle: float = 45
 
-export var isFlying: = false
-export var allowChangeFlying: = false
-export var fly_speed: = 10.0
-export var fly_accel: = 4.0
+export var isFlying: bool = false
+export var allowChangeFlying: bool = false
+export var fly_speed: float = 10.0
+export var fly_accel: float = 4.0
 
 # =================
 #  Tastatur Keys
 # --------------
-var keyForward: = KEY_W
-var keyBack: = KEY_S
-var keyLeft: = KEY_A
-var keyRight: = KEY_D
-var keyRun: = KEY_SHIFT
-var keyJump: = KEY_SPACE
-var keyDuck: = KEY_CONTROL
-var keyFly: = KEY_G
-var keyInteract: = KEY_F
+
+enum key {
+	FORWARD=KEY_W,
+	BACK=KEY_S,
+	LEFT=KEY_A,
+	RIGHT=KEY_D,
+	RUN=KEY_SHIFT,
+	JUMP=KEY_SPACE,
+	DUCK=KEY_CONTROL,
+	FLY=KEY_G,
+	INTERACT=KEY_F
+}
 
 # Movement
-var input_forward := "move_forward"
-var input_back := "move_back"
-var input_left := "move_left"
-var input_right := "move_right"
-var input_run := "run"
-var input_jump := "jump"
-var input_duck := "duck"
-var input_fly := "fly"
-var input_interact := "interact"
-
+const input:Dictionary = {
+	"forward": "move_forward",
+	"back": "move_back",
+	"left": "move_left",
+	"right": "move_right",
+	"run": "run",
+	"jump": "jump",
+	"duck": "duck",
+	"fly": "fly",
+	"interact": "interact"
+}
 
 # =================
 #  Variablen
 # --------------
 
 # Sprunghöhe oder Stufenhöhe
-var jump_pos := 0.0
-var up_height:= 0.0
+var jump_pos: float = 0.0
+var up_height: float = 0.0
 
 # Kamera Ausrichtung (für Einschränkung der Neigung, damt nicht im Kreis nach oben und unten gedreht werden kann)
-var camera_angle: = 0.0
+var camera_angle: float = 0.0
 
 # Gravitation Zeit für drehung in Gravitationsrichtung
-var gravity_time = 0.0
+var gravity_time: float = 0.0
 
 # Relative Maus Bewegung
 var mouse_relative := Vector2()
@@ -93,37 +96,43 @@ var new_transform : Transform
 var old_transform : Transform
 
 # Wenn Bewegung aktiviert
-var isMove := false
-var isGravityChanged := false
-
-var isCrouch := false
-var isDown := false
-var isForeward := false
-var isBackward := false
-var isLeft := false
-var isRight := false
-var isJump := false
-var isSprint := false
-var isOnFloor := false
-var isInteract := false
+var state:Dictionary = {
+	"isForward": false,
+	"isBackward": false,
+	"isLeft": false,
+	"isRight": false,
+	"isMove": false,
+	"isGravityChanged": false,
+	"isCrouch": false,
+	"isDown": false,
+	"isJump": false,
+	"isSprint": false,
+	"isOnFloor": false,
+	"isInteract": false
+}
 
 # Node Elemente
 var Player:KinematicBody = self
 var currentTarget: Object
-var Head: Spatial
-var Nose: Spatial
-var Cam: Camera
-var Hand: RayCast
-var ColStand: CollisionShape
-var ColCrouch: CollisionShape
 
-var LeftRay: RayCast
-var RightRay: RayCast
-var FrontRay: RayCast
-var BackRay: RayCast
+onready var Nodes:Dictionary = {
+	"Head": NodePath("Head"),
+	"Nose": NodePath("Head/Nose"),
+	"Cam": NodePath("Head/Nose/Cam"),
+	"Hand": NodePath("Head/Nose/Hand"),
+	"ColStand": NodePath("Stand"),
+	"ColCrouch": NodePath("Crouch")
+}
 
-var FloorRay: RayCast
-var TopRay: RayCast
+onready var Ray:Dictionary = {
+	"Front": NodePath("Feet/FrontRay"),
+	"Back": NodePath("Feet/BackRay"),
+	"Left": NodePath("Feet/LeftRay"),
+	"Right": NodePath("Feet/RightRay"),
+	"Top": NodePath("Crouch/TopRay"),
+	"Floor": NodePath("Feet/FloorRay")
+}
+
 
 # Bewegung Richtung
 var direction: = Vector3()
@@ -189,7 +198,6 @@ func _build():
 	H1.add_child(N)
 	self.add_child(H1)
 	
-	
 	# Kollision
 	var Stand := CollisionShape.new()
 	Stand.name = "Stand"
@@ -229,8 +237,6 @@ func _build():
 	self.collision_layer = 513
 	self.collision_mask = 513
 
-
-
 func _set_inputMap(mapName:String, keyCode: int ):
 	# prüfen ob Mapname vorhanden
 	if !InputMap.has_action(mapName):
@@ -244,76 +250,42 @@ func _set_inputMap(mapName:String, keyCode: int ):
 #Tasten zuordnen
 func set_input_keys():
 	# Tasten zuordnen
-
-	#var keyForward: = KEY_W
-	_set_inputMap(input_forward, keyForward)
-
-	#var keyBack: = KEY_S
-	_set_inputMap(input_back, keyBack)
-
-	#var keyLeft: = KEY_A
-	_set_inputMap(input_left, keyLeft)
-
-	#var keyRight: = KEY_D
-	_set_inputMap(input_right, keyRight)
-
-	#var keyRun: = KEY_SHIFT
-	_set_inputMap(input_run, keyRun)
-
-	#var keyJump: = KEY_SPACE
-	_set_inputMap(input_jump, keyJump)
-
-	#var keyDuck: = KEY_CONTROL
-	_set_inputMap(input_duck, keyDuck)
-
-	#var keyFly: = KEY_G
-	_set_inputMap(input_fly, keyFly)
-
-	#var keyInteract: = KEY_F
-	_set_inputMap(input_interact, keyInteract)
-
+	for index in range(0,input.size()):
+		_set_inputMap(input.values()[index], key.values()[index])
 
 #Bewegung aktivieren
 func start_move():
 	# Maus verstecken
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
 	# Bewegung aktivieren
-	isMove = true
+	state.isMove = true
 
 #Bewegung deaktivieren
 func stop_move():
 	# Maus verstecken
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
 	# Bewegung deaktivieren
-	isMove = false
-
+	state.isMove = false
 
 # Rotation
 func rotate_body(delta):
 	# Wenn Bewegung eingeschaltet
-
 	# nur wenn eine MausBewegung
 	if mouse_relative.length() > 0 :
 		# Mit Maus Sensibilität multiplizieren
 		var mouse_dist:Vector2 = -mouse_relative # kommt von _input MouseMotion
-		
 		# Bewegung weich machen
 		mouse_velocity = mouse_velocity.linear_interpolate(mouse_dist * mouse_sensivity, delta)
 		# print("mouse_velocity: ", mouse_velocity)
-		
 		# um eigene Y-Achse drehen
 		self.rotate(bodyBasis.y, deg2rad(mouse_velocity.x))
-		
 		# Prüfen ob die Mausbewegung + der Kamera ausrichtung innerhalb des erlaupten Sichtfeldes ist
 		if mouse_velocity.y + camera_angle < 90 and mouse_velocity.y + camera_angle > -90:
 			# Änderung zur Kamera Bewegung hinzufügen
 			camera_angle += mouse_velocity.y
-			
 			# Nase (Vertical) um die X-Achse der Nase rotieren
-			Nose.rotate(Nose.transform.basis.x, deg2rad(mouse_velocity.y))
-
+			
+			get_node(Nodes.Nose).rotate(get_node(Nodes.Nose).transform.basis.x, deg2rad(mouse_velocity.y))
 		# Maus Bewegung zurücksetzen
 		mouse_relative = Vector2()
 
@@ -322,145 +294,108 @@ func fly(delta):
 	# Zielrichtung * Flug Geschwindigkeit
 	var target:Vector3 = direction * fly_speed
 	bodyBasis = self.transform.basis
-	
-	if isJump:
+	if state.isJump:
 		# nach oben
 		target += bodyBasis.y
-
-	if isDown:
+	if state.isDown:
 		# nach unten
 		target -= bodyBasis.y
-
 	target = target.normalized()
-	
 	# Linear iterpolieren für Weichere Bewegung
 	velocity = velocity.linear_interpolate(target * fly_speed, fly_accel * delta)
-	
 	# Spieler bewegen
 	velocity = move_and_slide(velocity)
 
-
 # Stufen
 func checkStair(_delta):
-	# Wenn gedückt
+	# Wenn gedückt	
 	# dann kann man keine Stufen steigen
-	if isCrouch:
+	if state.isCrouch:
 		return
-		
-	var isStep = false
 	var ray: RayCast = null
-	
 	# wenn Bewegung
 	# Stufe prüfen Vorwärts
-	if isForeward and FrontRay.is_colliding():
-		ray = FrontRay
-		isStep = true
-	
-	# Stufe prüfen Rückwärts
-	if isBackward and BackRay.is_colliding():
-		ray = BackRay
-		isStep = true
-
-	# Stufe prüfen Links
-	if isLeft and LeftRay.is_colliding():
-		ray = LeftRay
-		isStep = true
-
-	# Stufe prüfen Rechts
-	if isRight and RightRay.is_colliding():
-		ray = RightRay
-		isStep = true
-	
-	# Wenn Stufe gefunden
-	if isStep:
-		# Höhe der Stufe zu der eigenen Position ermitteln
-		var stairHigh = (ray.get_collision_point() * bodyBasis.y).distance_to(self.global_transform.origin * bodyBasis.y)
+	for i in range(0,4):
+		if state[i]:
+			if get_node(Ray.values()[i]).is_colliding():
+				ray = get_node(Ray.values()[i])
+				isStep(ray)
 		
-		# nur wenn nicht die maximale Stufen-Höhe überschritten
-		if stairHigh <= max_stair_height:
-			# Stufe Fläche prüfen
-			var stair_normal = ray.get_collision_normal()
-			var stair_angle = rad2deg(acos(stair_normal.dot(bodyBasis.y)))
-			
-			# nur wenn eine flache Stufe
-			if stair_angle < max_stair_angle:
-				# Sprung auf Stufe einstellen
-				up_height = stairHigh
-				jump_pos = self.transform.origin.y
-				isJump = true
-				
+# Wenn Stufe gefunden
+func isStep(ray: RayCast):
+	# Höhe der Stufe zu der eigenen Position ermitteln
+	var stairHigh = (ray.get_collision_point() * bodyBasis.y).distance_to(self.global_transform.origin * bodyBasis.y)
+	# nur wenn nicht die maximale Stufen-Höhe überschritten
+	if stairHigh <= max_stair_height:
+		# Stufe Fläche prüfen
+		var stair_normal = ray.get_collision_normal()
+		var stair_angle = rad2deg(acos(stair_normal.dot(bodyBasis.y)))
+		# nur wenn eine flache Stufe
+		if stair_angle < max_stair_angle:
+			# Sprung auf Stufe einstellen
+			up_height = stairHigh
+			jump_pos = self.transform.origin.y
+			state.isJump = true
 
 # Gehen
 func walk(delta):
 	# auf Stufen prüfen
 	checkStair(delta)
-
 	#Geschwindigkeit prüfen
 	var speed
-	
 	# Wenn Laufen eingeschaltet
-	if isSprint:
+	if state.isSprint:
 		# maximale Laufgeschwindigkeit
 		speed = max_running_speed
 	else:
 		#maximale geh-Geschwindigkeit
 		speed = max_speed
-		
 	# Gehen Ziel bestimmen
 	var move_target:Vector3 = Vector3(direction) * speed
-	
 	# GRAVITATION hinzufügen
-	if isJump:
+	if state.isJump:
 		move_target += bodyBasis.y.normalized() * up_height * jump_speed
-	elif !FloorRay.is_colliding():
+	elif !get_node(Ray.Floor).is_colliding():
 		move_target -= bodyBasis.y * gravity
-		
 	#Beschleunigung bestimmen
 	var acceleration
-
 	# Wenn aktuelle Bewegung(velocity) und gewünschte Richtung(direction)
-	# in die selbe Richtung (dot Produckt ist > 0)
-	var dotProduckt = direction.dot(velocity)
-	if dotProduckt > 0:
+	# in die selbe Richtung (dot Produkt ist > 0)
+	var dotProdukt = direction.dot(velocity)
+	if dotProdukt > 0:
 		# Beschleunigen
 		acceleration = accel
 	else:
 		#Abbremsen
 		acceleration = deaccel
-		
-	
 	# für sanfte Bewegung linear Interpolieren
 	velocity = velocity.linear_interpolate(move_target, acceleration * delta)
-
 	# Spieler Bewegen
 	# 2 Parameter (Vector3(0,1,0) gibt an in welche Richtung der Boden schaut
 	# für die Prüfung ob der Spieler am Boden Steht
 	velocity = self.move_and_slide(velocity, bodyBasis.y, true, 4, deg2rad(max_floor_angle))
 	bodyBasis = self.transform.basis
-
 	# Sprunghöhe begrenzen
-	if isJump and self.transform.origin.y - jump_pos > up_height:
-		isJump = false
+	if state.isJump and self.transform.origin.y - jump_pos > up_height:
+		state.isJump = false
 		velocity -= bodyBasis.y.normalized()
-	
 	
 func wipe_cam(delta):
 	# Kopfwippen
-	if isForeward or isBackward or isLeft or isRight:
+	if state[0] or state[1] or state[2] or state[3]:
 		# in_bewegung wird  auf true gesetzt([W][A][S][D])
 		var frequenz = camera_shake_frequenz
 		var power = camera_shake_power
-		if isSprint:
+		if state.isSprint:
 			frequenz = frequenz* 2
 			power = power /2
-		
 		cam_velocity += frequenz * delta
 		if cam_velocity > PI:
 			# nach >180° wird in_bewegung auf false und kann erneut gestartet werden
 			cam_velocity = 0
 		cam_velocity = fmod(cam_velocity, PI) # winkel auf Pi begrenzen
 		var y = sin(cam_velocity) * power
-		Cam.translation.y = y
+		get_node(Nodes.Cam).translation.y = y
 	
 # ======================
 #   Gravitation
@@ -471,19 +406,14 @@ func translate_to_target(target: Transform):
 	# Transforms auf Player richten
 	old_transform = Transform(self.global_transform.basis, self.transform.origin)
 	new_transform = target
-
 	# Gravitation auf geändert setzen
-	isGravityChanged = true
+	state.isGravityChanged = true
 	gravity_time = 0.0
-	isMove = false
-
-
+	state.isMove = false
 # neue Gravitation setzen
 func set_new_gravity(newValue: float ):
 	# Werte übernehmen
 	gravity = newValue
-	
-	
 
 # ======================
 #  Interaktion
@@ -492,8 +422,8 @@ func set_new_gravity(newValue: float ):
 # pruefen ob die Hand ein Objekt beruehrt
 func _check_hand():
 	# Wenn ein Gegenstand mit der Hand berührt wird
-	if Hand.is_colliding():
-		var Target = Hand.get_collider()
+	if get_node(Nodes.Hand).is_colliding():
+		var Target = get_node(Nodes.Hand).get_collider()
 		# print("Target: ", Target)
 		# wenn ein neuer Gegenstand
 		if currentTarget != Target:
@@ -520,122 +450,94 @@ func _check_hand():
 func _check_key_input():
 	# ESC taste 'ui_cancel'
 	# auslagern in Main
-	if isMove:
+	if state.isMove:
 		# Bewegungs Richtung zurücksetzen
 		direction = Vector3.ZERO
-		
 		# Nase Ausrichtung lesen
-		var noseBasis: Basis = Nose.get_global_transform().orthonormalized().basis
+		var noseBasis: Basis = get_node(Nodes.Nose).get_global_transform().orthonormalized().basis
 		bodyBasis = self.get_global_transform().orthonormalized().basis
-
 		# Wenn Flugmodus umschaltbar
-		if allowChangeFlying and Input.is_action_just_pressed(input_fly):
+		if allowChangeFlying and Input.is_action_just_pressed(input.fly):
 			#wenn im Flugmodus
 			if isFlying:
 				isFlying = false
 			else:
 				isFlying = true
-		
 		# wenn Interaktion
-		if Input.is_action_pressed(input_interact):
-			isInteract = true
+		if Input.is_action_pressed(input.interact):
+			state.isInteract = true
 			stop_move()
-		
 		# wenn ducken kriechen
-		if Input.is_action_pressed(input_duck):
+		if Input.is_action_pressed(input.duck):
 			if isFlying:
-				isDown = true
-			elif !isCrouch and FloorRay.is_colliding():
-				isCrouch = true
-				isDown = false
-									
+				state.isDown = true
+			elif !state.isCrouch and get_node(Ray.Floor).is_colliding():
+				state.isCrouch = true
+				state.isDown = false
 				# Ducken Collision
-				ColCrouch.disabled = false
-				ColStand.disabled = true
-				
-				FloorRay.enabled = false
-		elif isCrouch and !TopRay.is_colliding():
+				get_node(Nodes.ColCrouch).disabled = false
+				get_node(Nodes.ColStand).disabled = true
+				get_node(Ray.Floor).enabled = false
+		elif state.isCrouch and !get_node(Ray.Top).is_colliding():
 			#scale_object_local(Vector3(1, 2, 1))
 			transform.origin.y += 1
-			ColStand.disabled = false
-			ColCrouch.disabled = true
-			FloorRay.enabled = true
-			isCrouch = false
+			get_node(Nodes.ColCrouch).disabled = true
+			get_node(Nodes.ColStand).disabled = false
+			get_node(Ray.Floor).enabled = true
+			state.isCrouch = false
 		else:
 			#isCrouch = false
-			isDown = false
+			state.isDown = false
 		
-		# Wenn nach vorne 'move_forward'
-		if Input.is_action_pressed(input_forward):
-			if isFlying:
-				direction -= noseBasis.z
-			else:
-				direction -= bodyBasis.z # baseNormal.z
-			isForeward = true
-		else:
-			isForeward = false
-			
-		# Wenn nach hinten 'move_backward'
-		if Input.is_action_pressed(input_back):
-			if isFlying:
-				direction += noseBasis.z # baseNormal.z
-			else:
-				direction += bodyBasis.z # baseNormal.z
-			isBackward = true
-		else:
-			isBackward = false
-			
-		# Wenn nach links 'move_left'
-		if Input.is_action_pressed(input_left):
-			direction -= bodyBasis.x # baseNormal.x
-			isLeft = true
-		else:
-			isLeft = false
-			
-		# Wenn nach rechts 'move_right'
-		if Input.is_action_pressed(input_right):
-			direction += bodyBasis.x # baseNormal.x
-			isRight = true
-		else:
-			isRight = false
-
-		if Input.is_action_pressed(input_run):
-			isSprint = true
-		else:
-			isSprint = false
-
+		for i in range(0,4):
+			state[i] = Input.is_action_pressed(input.values()[i])
+			if state[i]:
+				match i:
+					0: # Wenn nach vorne 'move_forward'
+						if isFlying:
+							direction -= noseBasis.z
+						else:
+							direction -= bodyBasis.z # baseNormal.z
+					1: # Wenn nach links 'move_left'
+						if isFlying:
+							direction += noseBasis.z # baseNormal.z
+						else:
+							direction += bodyBasis.z # baseNormal.z
+					2: # Wenn nach links 'move_left'
+						direction -= bodyBasis.x # baseNormal.x
+					3: # Wenn nach rechts 'move_right'
+						direction += bodyBasis.x # baseNormal.x
+		
 		# Jump
-		if isFlying and Input.is_action_pressed(input_jump):
-			isJump = true
-		elif FloorRay.is_colliding() and Input.is_action_just_pressed(input_jump):
-			isJump = true
+		if isFlying and Input.is_action_pressed(input.jump):
+			state.isJump = true
+		elif get_node(Ray.Floor).is_colliding() and Input.is_action_just_pressed(input.jump):
+			state.isJump = true
 			jump_pos = self.transform.origin.y
 			up_height = max_jump_height * jump_speed * 0.5
 			direction += bodyBasis.y
 		else:
-			isJump = false
+			state.isJump = false
 			# up_height = 0.0
-
+		
 		# Richtung Normalisieren
 		direction = direction.normalized()
-
-	else:
-		if isInteract and !Input.is_action_pressed(input_interact):
-			isInteract = false
+	
+	else: # !state.isMove
+		if state.isInteract and !Input.is_action_pressed(input.interact):
+			state.isInteract = false
 			start_move()
 
 # Eingaben prüfen
 func _input(event):
 	# Wenn Bewegung eingeschaltet
-	if isMove:
+	if state.isMove:
 		# Wenn Maus Bewegung (Umschauen)
 		if event is InputEventMouseMotion:
 			mouse_velocity = Vector2.ZERO
-			
 			# relative Mausbewegung merken
 			mouse_relative = event.relative
 			# mouse_relative = mouse_relative.linear_interpolate(event.relative * mouse_sensivity, 1)
-
 
 #Game Process
 func _process(delta):
@@ -645,10 +547,9 @@ func _process(delta):
 # physic Process
 # func _physics_process(delta):
 	# nur Wenn Bewegung erlaubt
-	if isMove:
+	if state.isMove:
 		# Drehen
 		rotate_body(delta)
-	
 		# Wenn im Flugmodus
 		if isFlying:
 			# fliegen
@@ -659,47 +560,27 @@ func _process(delta):
 			
 			# Kamera Bewegung
 			wipe_cam(delta)
-
 		# Hand Beruehrung testen
 		_check_hand()
-	
-	if isGravityChanged:
+	if state.isGravityChanged:
 		# GrafitationsZeit ändern
 		gravity_time += delta
 		self.global_transform = old_transform.interpolate_with(new_transform, gravity_time)
-
 		# wenn Ende erreicht
 		if self.global_transform == new_transform:
-			isMove = true
-			isGravityChanged = false
+			state.isMove = true
+			state.isGravityChanged = false
 
 # Wenn die Szene geladen ist
 func _ready():
 	# Dummy Körper ausblenden
 	# $Visible.visible = false
-	
 	# Objekt erstellen
 	_build()
-	
 	# Tastatur zuordnen
 	set_input_keys()
-	
-	# Nodes merken 
-	Head = $Head
-	Nose = $Head/Nose
-	Cam = $Head/Nose/Cam
-	Hand = $Head/Nose/Hand
-	ColStand = $Stand
-	ColCrouch = $Crouch
-	ColCrouch.disabled = true
-	
-	LeftRay = $Feet/LeftRay
-	RightRay = $Feet/RightRay
-	FrontRay = $Feet/FrontRay
-	BackRay = $Feet/BackRay
-	TopRay = $Crouch/TopRay
-	FloorRay = $Feet/FloorRay
-	
+	get_node(Nodes.ColCrouch).disabled = true
 	# Bewegung starten
 	# todo: in Main auslagern ?
 	start_move()
+	

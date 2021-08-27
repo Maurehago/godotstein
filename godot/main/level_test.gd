@@ -18,7 +18,7 @@ func _ready():
 	self.collision_mask = 512
 
 	# Signal verbinden
-	self.connect("body_entered", self, "_on_body_entered")
+	var _err = self.connect("body_entered", self, "_on_body_entered")
 
 # Wenn jemand in die Area kommt
 func _on_body_entered(_body):

@@ -26,14 +26,14 @@
 [ext_resource path="res://burg/hof/t01.mesh" type="ArrayMesh" id=24]
 [ext_resource path="res://burg/hof/t02.mesh" type="ArrayMesh" id=25]
 [ext_resource path="res://burg/hof/t02_dach.mesh" type="ArrayMesh" id=26]
-[ext_resource path="res://burg/hof/dachdenster_Hof_O.mesh" type="ArrayMesh" id=27]
+[ext_resource path="res://burg/hof/fenster_hof_o.mesh" type="ArrayMesh" id=27]
 [ext_resource path="res://burg/hof/t03.mesh" type="ArrayMesh" id=28]
 [ext_resource path="res://burg/hof/t03_dach.mesh" type="ArrayMesh" id=29]
 [ext_resource path="res://burg/hof/t04.mesh" type="ArrayMesh" id=30]
 [ext_resource path="res://burg/hof/t04_dach.mesh" type="ArrayMesh" id=31]
 [ext_resource path="res://burg/hof/t05.mesh" type="ArrayMesh" id=32]
 [ext_resource path="res://burg/hof/t05_dach.mesh" type="ArrayMesh" id=33]
-[ext_resource path="res://burg/hof/fenster_hof_O.mesh" type="ArrayMesh" id=34]
+[ext_resource path="res://burg/hof/dachdenster_hof_o.mesh" type="ArrayMesh" id=34]
 [ext_resource path="res://burg/hof/t06.mesh" type="ArrayMesh" id=35]
 [ext_resource path="res://burg/hof/t06_dach.mesh" type="ArrayMesh" id=36]
 [ext_resource path="res://burg/hof/t07.mesh" type="ArrayMesh" id=37]
@@ -295,7 +295,7 @@ material/0 = null
 [node name="Gebaeude" type="Spatial" parent="."]
 
 [node name="Dachdenster_Hof_O" type="MeshInstance" parent="Gebaeude"]
-mesh = ExtResource( 27 )
+mesh = ExtResource( 34 )
 material/0 = null
 
 [node name="Dachdenster_Hof_W" type="MeshInstance" parent="Gebaeude"]
@@ -303,7 +303,7 @@ mesh = ExtResource( 45 )
 material/0 = null
 
 [node name="Fenster_Hof_O" type="MeshInstance" parent="Gebaeude"]
-mesh = ExtResource( 34 )
+mesh = ExtResource( 27 )
 material/0 = null
 
 [node name="Fenster_Hof_W" type="MeshInstance" parent="Gebaeude"]

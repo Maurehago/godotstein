@@ -110,32 +110,20 @@ var state:Dictionary = {
 	"isOnFloor": false,
 	"isInteract": false
 }
+var stateKey = ["isForward", "isBackward", "isLeft", "isRight"]
 
 # Node Elemente
 var Player:KinematicBody = self
 var currentTarget: Object
 
-onready var Nodes:Dictionary = {
-	"Head": NodePath("Head"),
-	"Nose": NodePath("Head/Nose"),
-	"Cam": NodePath("Head/Nose/Cam"),
-	"Hand": NodePath("Head/Nose/Hand"),
-	"ColStand": NodePath("Stand"),
-	"ColCrouch": NodePath("Crouch")
-}
+var Nodes:Dictionary = {}
 
-onready var Ray:Dictionary = {
-	"Front": NodePath("Feet/FrontRay"),
-	"Back": NodePath("Feet/BackRay"),
-	"Left": NodePath("Feet/LeftRay"),
-	"Right": NodePath("Feet/RightRay"),
-	"Top": NodePath("Crouch/TopRay"),
-	"Floor": NodePath("Feet/FloorRay")
-}
+var Ray:Dictionary = {}
 
 
 # Bewegung Richtung
 var direction: = Vector3()
+var dirList = []	# 0=vor,1=zurueck,2=links,3=rechts
 
 # Bewegung
 var velocity: = Vector3()
@@ -153,6 +141,7 @@ func _build_feet(name:String, pos:Vector3) -> RayCast:
 	ray.transform.origin = pos
 	ray.add_to_group("Feet")
 	ray.enabled = true
+	Ray[name] = ray		# dem Dictionary zuweisen
 	return ray
 
 # Erstellt alle notwendigen Player nodes
@@ -179,12 +168,16 @@ func _build():
 	var H1 := Spatial.new()
 	H1.name = "Head"
 	H1.transform.origin.y = 1.6
+	Nodes["Head"] = H1		# dem Dictionary zuweisen
 	var N := Spatial.new()
 	N.name = "Nose"
+	Nodes["Nose"] = N		# dem Dictionary zuweisen
 	var C := Camera.new()
 	C.name = "Cam"
+	Nodes["Cam"] = C 		# dem Dictionary zuweisen
 	var H2 := RayCast.new()
 	H2.name = "Hand"
+	Nodes["Hand"] = H2		# dem Dictionary zuweisen
 	
 	H2.enabled = true
 	H2.cast_to = Vector3(0, 0, -1.2)
@@ -201,6 +194,7 @@ func _build():
 	# Kollision
 	var Stand := CollisionShape.new()
 	Stand.name = "Stand"
+	Nodes["CollStand"] = Stand		# dem Dictionary zuweisen
 	var Capsule := CapsuleShape.new()
 	# Capsule.name = "Capsule"
 	Capsule.radius = 0.2
@@ -213,11 +207,12 @@ func _build():
 
 	var Crouch := CollisionShape.new()
 	Crouch.name = "Crouch"
+	Nodes["CollCrouch"] = Crouch	# dem Dictionary zuweisen
 	var Cap2 := CapsuleShape.new()
 	# Cap2.name = "Cap2"
 	var TRay := RayCast.new()
 	TRay.name = "TopRay"
-	
+
 	Cap2.radius = 0.2
 	Cap2.height = 0.5
 	
@@ -226,6 +221,9 @@ func _build():
 	TRay.transform.basis.y = Vector3(0, -0, -1)
 	TRay.transform.basis.z = Vector3(0, 1, -0)
 	TRay.transform.origin.y = -0.45
+
+	Ray["Floor"] = FRay		# dem Dictionary zuweisen
+	Ray["Top"] = TRay		# dem Dictionary zuweisen
 	
 	Crouch.shape = Cap2
 	Crouch.transform.basis.y = Vector3(0, 0, 1)
@@ -285,7 +283,7 @@ func rotate_body(delta):
 			camera_angle += mouse_velocity.y
 			# Nase (Vertical) um die X-Achse der Nase rotieren
 			
-			get_node(Nodes.Nose).rotate(get_node(Nodes.Nose).transform.basis.x, deg2rad(mouse_velocity.y))
+			Nodes.Nose.rotate(Nodes.Nose.transform.basis.x, deg2rad(mouse_velocity.y))
 		# Maus Bewegung zurücksetzen
 		mouse_relative = Vector2()
 
@@ -312,17 +310,21 @@ func checkStair(_delta):
 	# dann kann man keine Stufen steigen
 	if state.isCrouch:
 		return
-	var ray: RayCast = null
+
 	# wenn Bewegung
-	# Stufe prüfen Vorwärts
-	for i in range(0,4):
-		if state[i]:
-			if get_node(Ray.values()[i]).is_colliding():
-				ray = get_node(Ray.values()[i])
-				isStep(ray)
-		
+	# kein Dictinary verwenden!!!, in einem Dictionary wird immer nach dem Namen sortiert, nicht nach der Reihenfolge
+	if state.isForward and Ray.FrontRay.is_colliding():
+		isStep(Ray.FrontRay)
+	elif state.isBackward and Ray.BackRay.is_colliding():
+		isStep(Ray.BackRay)
+	elif state.isLeft and Ray.LeftRay.is_colliding():
+		isStep(Ray.LeftRay)
+	elif state.isRight and Ray.RightRay.is_colliding():
+		isStep(Ray.RightRay)
+	
 # Wenn Stufe gefunden
 func isStep(ray: RayCast):
+	# print("Ray: ", ray.name)
 	# Höhe der Stufe zu der eigenen Position ermitteln
 	var stairHigh = (ray.get_collision_point() * bodyBasis.y).distance_to(self.global_transform.origin * bodyBasis.y)
 	# nur wenn nicht die maximale Stufen-Höhe überschritten
@@ -355,7 +357,7 @@ func walk(delta):
 	# GRAVITATION hinzufügen
 	if state.isJump:
 		move_target += bodyBasis.y.normalized() * up_height * jump_speed
-	elif !get_node(Ray.Floor).is_colliding():
+	elif !Ray.Floor.is_colliding():
 		move_target -= bodyBasis.y * gravity
 	#Beschleunigung bestimmen
 	var acceleration
@@ -382,7 +384,8 @@ func walk(delta):
 	
 func wipe_cam(delta):
 	# Kopfwippen
-	if state[0] or state[1] or state[2] or state[3]:
+	# kein Dictionary verwenden!!! in einem Dictionary wird der Key nach Name sortiert
+	if state.isForward or state.isBackward or state.isLeft or state.isRight:
 		# in_bewegung wird  auf true gesetzt([W][A][S][D])
 		var frequenz = camera_shake_frequenz
 		var power = camera_shake_power
@@ -395,7 +398,7 @@ func wipe_cam(delta):
 			cam_velocity = 0
 		cam_velocity = fmod(cam_velocity, PI) # winkel auf Pi begrenzen
 		var y = sin(cam_velocity) * power
-		get_node(Nodes.Cam).translation.y = y
+		Nodes.Cam.translation.y = y
 	
 # ======================
 #   Gravitation
@@ -422,8 +425,8 @@ func set_new_gravity(newValue: float ):
 # pruefen ob die Hand ein Objekt beruehrt
 func _check_hand():
 	# Wenn ein Gegenstand mit der Hand berührt wird
-	if get_node(Nodes.Hand).is_colliding():
-		var Target = get_node(Nodes.Hand).get_collider()
+	if Nodes.Hand.is_colliding():
+		var Target = Nodes.Hand.get_collider()
 		# print("Target: ", Target)
 		# wenn ein neuer Gegenstand
 		if currentTarget != Target:
@@ -454,7 +457,7 @@ func _check_key_input():
 		# Bewegungs Richtung zurücksetzen
 		direction = Vector3.ZERO
 		# Nase Ausrichtung lesen
-		var noseBasis: Basis = get_node(Nodes.Nose).get_global_transform().orthonormalized().basis
+		var noseBasis: Basis = Nodes.Nose.get_global_transform().orthonormalized().basis
 		bodyBasis = self.get_global_transform().orthonormalized().basis
 		# Wenn Flugmodus umschaltbar
 		if allowChangeFlying and Input.is_action_just_pressed(input.fly):
@@ -471,47 +474,65 @@ func _check_key_input():
 		if Input.is_action_pressed(input.duck):
 			if isFlying:
 				state.isDown = true
-			elif !state.isCrouch and get_node(Ray.Floor).is_colliding():
+			elif !state.isCrouch and Ray.Floor.is_colliding():
 				state.isCrouch = true
 				state.isDown = false
 				# Ducken Collision
-				get_node(Nodes.ColCrouch).disabled = false
-				get_node(Nodes.ColStand).disabled = true
-				get_node(Ray.Floor).enabled = false
-		elif state.isCrouch and !get_node(Ray.Top).is_colliding():
+				Nodes.CollCrouch.disabled = false
+				Nodes.CollStand.disabled = true
+				Ray.Floor.enabled = false
+		elif state.isCrouch and !Ray.Top.is_colliding():
 			#scale_object_local(Vector3(1, 2, 1))
 			transform.origin.y += 1
-			get_node(Nodes.ColCrouch).disabled = true
-			get_node(Nodes.ColStand).disabled = false
-			get_node(Ray.Floor).enabled = true
+			Nodes.CollCrouch.disabled = true
+			Nodes.CollStand.disabled = false
+			Ray.Floor.enabled = true
 			state.isCrouch = false
 		else:
 			#isCrouch = false
 			state.isDown = false
 		
-		for i in range(0,4):
-			state[i] = Input.is_action_pressed(input.values()[i])
-			if state[i]:
-				match i:
-					0: # Wenn nach vorne 'move_forward'
-						if isFlying:
-							direction -= noseBasis.z
-						else:
-							direction -= bodyBasis.z # baseNormal.z
-					1: # Wenn nach links 'move_left'
-						if isFlying:
-							direction += noseBasis.z # baseNormal.z
-						else:
-							direction += bodyBasis.z # baseNormal.z
-					2: # Wenn nach links 'move_left'
-						direction -= bodyBasis.x # baseNormal.x
-					3: # Wenn nach rechts 'move_right'
-						direction += bodyBasis.x # baseNormal.x
+		# Grundlegende Bewegung zurücksetzen
+		state.isForward = false
+		state.isBackward = false
+		state.isLeft = false
+		state.isRight = false
+		state.isSprint = false
+		
+		# Wenn Sprint
+		if Input.is_action_pressed(input.run):
+			state.isSprint = true
+		
+		# Wenn nach vorne 'move_forward
+		if Input.is_action_pressed(input.forward):
+			state.isForward = true
+			if isFlying:
+				direction -= noseBasis.z
+			else:
+				direction -= bodyBasis.z # baseNormal.z
+					
+		# Wenn zurück 'move_backwards'
+		if Input.is_action_pressed(input.back):
+			state.isBackward = true
+			if isFlying:
+				direction += noseBasis.z # baseNormal.z
+			else:
+				direction += bodyBasis.z # baseNormal.z
+
+		# Wenn nach links 'move_left'
+		if Input.is_action_pressed(input.left):
+			state.isLeft = true
+			direction -= bodyBasis.x # baseNormal.x
+					
+		# Wenn nach rechts 'move_right'
+		if Input.is_action_pressed(input.right):
+			state.isRight = true
+			direction += bodyBasis.x # baseNormal.x
 		
 		# Jump
 		if isFlying and Input.is_action_pressed(input.jump):
 			state.isJump = true
-		elif get_node(Ray.Floor).is_colliding() and Input.is_action_just_pressed(input.jump):
+		elif Ray.Floor.is_colliding() and Input.is_action_just_pressed(input.jump):
 			state.isJump = true
 			jump_pos = self.transform.origin.y
 			up_height = max_jump_height * jump_speed * 0.5
@@ -577,9 +598,11 @@ func _ready():
 	# $Visible.visible = false
 	# Objekt erstellen
 	_build()
+	
 	# Tastatur zuordnen
 	set_input_keys()
-	get_node(Nodes.ColCrouch).disabled = true
+	Nodes.CollCrouch.disabled = true
+
 	# Bewegung starten
 	# todo: in Main auslagern ?
 	start_move()
